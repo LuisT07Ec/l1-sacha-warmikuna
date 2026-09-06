@@ -18,8 +18,8 @@
     <meta property="og:image" content="assets/images/hero_sacha_warmikuna.jpg">
     <meta property="og:url" content="https://sachawarmikuna.ec">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="assets/images/logo_sacha_warmikuna.jpeg">
+    <!-- Favicon (Nuevo Logo) -->
+    <link rel="icon" type="image/webp" href="assets/images/logo_sacha_warmikuna.webp">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
@@ -50,16 +50,12 @@
 <body>
 
     <!-- ====================================================================
-         HEADER (SIN PUNTOS DE FUGA: ÚNICAMENTE EL LOGOTIPO DE LA MARCA)
+         HEADER (VERDE VERDE MISMO COLOR QUE EL FOOTER + LOGO BLANCO LEGIBLE)
          ==================================================================== -->
     <header class="site-header">
         <div class="container header-inner">
             <a href="#" class="brand-logo-wrap">
-                <img src="assets/images/logo_sacha_warmikuna.jpeg" alt="Logo Experiencia Sacha Warmikuna Otavalo" class="brand-logo-img">
-                <div>
-                    <h1 class="brand-name">Sacha Warmikuna</h1>
-                    <span class="brand-tagline">Turismo Comunitario Cayambi</span>
-                </div>
+                <img src="assets/images/logo_sacha_warmikuna.webp" alt="Logo Sacha Warmikuna Otavalo" class="brand-logo-img">
             </a>
             
             <div class="header-badge">
@@ -147,22 +143,36 @@
                                 <input type="email" id="email" class="form-control" placeholder="Ej: tuemail@correo.com" required>
                             </div>
 
-                            <!-- Campo 4 Opcional A/B Test: Fecha tentativa de viaje -->
+                            <!-- Campo 4: Ciudad del visitante -->
+                            <div class="form-group">
+                                <label for="city" class="form-label">Ciudad de Origen / Residencia *</label>
+                                <input type="text" id="city" class="form-control" placeholder="Ej: Quito, Madrid, Cuenca..." required>
+                            </div>
+
+                            <!-- Campo Opcional A/B Test: Fecha tentativa de viaje -->
                             <div class="form-group" id="travelDateGroup" style="display: none;">
                                 <label for="travelDate" class="form-label">Fecha tentativa de viaje</label>
                                 <input type="date" id="travelDate" class="form-control">
                             </div>
 
-                            <!-- Botón CTA Principal (Alto Contraste Rojo Urgencia) -->
+                            <!-- Checkbox Obligatorio LOPDP: Autorización de Tratamiento de Datos -->
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="privacyConsent" required>
+                                    <span>Autorizo de manera explícita el tratamiento de mis datos personales conforme a la <a href="politica-de-privacidad.html" target="_blank" class="privacy-link">Política de Privacidad</a> (LOPDP / RGPD) de Sacha Warmikuna. *</span>
+                                </label>
+                            </div>
+
+                            <!-- Botón CTA Principal (Texto: QUIERO VIVIR LA EXPERIENCIA SACHA) -->
                             <button type="submit" class="btn-cta btn-cta-target" id="ctaBtn">
-                                <span>¡QUIERO VIVIR LA EXPERIENCIA SACHA!</span>
+                                <span>QUIERO VIVIR LA EXPERIENCIA SACHA</span>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </button>
 
                             <!-- Texto de Confianza y Privacidad -->
                             <div class="privacy-note">
                                 <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                                <span>🔒 Respetamos tu privacidad. Tus datos están seguros y solo los usaremos para coordinar tu visita.</span>
+                                <span>🔒 Tus datos están seguros bajo la LOPDP de Ecuador. No compartimos tu información con terceros.</span>
                             </div>
                         </form>
                     </div>
@@ -172,65 +182,7 @@
         </section>
 
         <!-- ================================================================
-             SECCIÓN 2: NARRATIVA PERSUASIVA (FÓRMULA PAS)
-             ================================================================ -->
-        <section class="pas-section" id="narrativa">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Tu Próximo Viaje con Alma</span>
-                    <h2 class="section-title">Reconéctate con el Origen y la Filosofía Cayambi</h2>
-                </div>
-
-                <div class="pas-grid">
-                    <!-- El Problema -->
-                    <div class="pas-card problem">
-                        <h3 class="pas-card-title">¿Turismo de vitrina?</h3>
-                        <p class="pas-card-text">
-                            ¿Estás cansado de los viajes turísticos masivos, comerciales e impersonales donde solo eres un espectador más detrás de la ventana de un autobús?
-                        </p>
-                    </div>
-
-                    <!-- La Agitación -->
-                    <div class="pas-card agitation">
-                        <h3 class="pas-card-title">La desconexión diaria</h3>
-                        <p class="pas-card-text">
-                            En el ajetreo diario de la ciudad, es fácil perder la conexión con la tierra, con el origen de lo que consumimos y con las tradiciones ancestrales que nos dan identidad. El estrés cotidiano nos agota, dejándonos con la sensación de que necesitamos una desconexión real, profunda y con un verdadero propósito. No busques solo un destino para tomar fotos; busca una experiencia que transforme tu manera de ver el mundo.
-                        </p>
-                    </div>
-
-                    <!-- La Solución -->
-                    <div class="pas-card solution">
-                        <h3 class="pas-card-title">La calidez de Sacha Warmikuna</h3>
-                        <p class="pas-card-text">
-                            <strong>Sacha Warmikuna es el refugio de biodiversidad y cultura que estabas buscando.</strong> Este proyecto dinámico y sostenible fue concebido desde y para la comunidad, fundado por cuatro mujeres Cayambis decididas a preservar su cosmovisión y el empoderamiento a través de la educación y el progreso comunitario. Al visitarnos, las familias de Pijal te recibirán con los brazos abiertos. No solo conocerás nuestras tradiciones; te convertirás en parte de nuestra fortaleza.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Story Banner & Insignias Planas de Garantía (Flat Badges) -->
-                <div class="mamas-story-banner">
-                    <div class="mamas-story-content">
-                        <h3>Fundado por 4 Mujeres Cayambis</h3>
-                        <p>
-                            Un proyecto de turismo comunitario directo que impulsa la educación, la preservación cultural y el progreso sostenible de las familias en la comunidad de Pijal, Otavalo.
-                        </p>
-                        <div class="flat-badges-wrap">
-                            <span class="flat-badge">🌱 Turismo Comunitario Directo</span>
-                            <span class="flat-badge">🤝 Apoyo Sostenible</span>
-                            <span class="flat-badge">🧵 Bordados a Mano</span>
-                            <span class="flat-badge">🌿 Medicina Ancestral</span>
-                        </div>
-                    </div>
-                    <div>
-                        <img src="assets/images/tour_experiencia_sacha.jpg" alt="Mamas Cayambis en convivencia comunitaria en Pijal Otavalo" style="border-radius: var(--radius-md); box-shadow: var(--shadow-card);">
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ================================================================
-             SECCIÓN 3: EL VIAJE DE DESCUBRIMIENTO (DESGLOSE DEL PAQUETE)
+             SECCIÓN 2: EL VIAJE DE DESCUBRIMIENTO (DESGLOSE DEL PAQUETE)
              ================================================================ -->
         <section class="tours-section" id="experiencias">
             <div class="container">
@@ -284,43 +236,27 @@
                 </div>
 
                 <!-- ============================================================
-                     SECCIÓN 4: INFORMACIÓN LOGÍSTICA CLARA
+                     INFORMACIÓN LOGÍSTICA & GOOGLE MAPS
                      ============================================================ -->
                 <div class="logistics-box">
-                    <h3 class="logistics-title">Información Logística Clara</h3>
-                    <div class="logistics-grid">
-                        <!-- Ubicación -->
-                        <div class="logistics-item">
-                            <div class="logistics-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                            </div>
-                            <div>
-                                <h4>📍 Ubicación</h4>
-                                <p>Panamericana Norte, Kilómetro 46, Pijal – Otavalo. (A tan solo una hora y media de Quito).</p>
-                            </div>
+                    <h3 class="logistics-title">Ubicación y Cómo Llegar</h3>
+                    
+                    <div class="location-single-content">
+                        <div class="logistics-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                         </div>
+                        <div>
+                            <h4>📍 Ubicación</h4>
+                            <p>Panamericana Norte, Kilómetro 46, Pijal – Otavalo, Imbabura, Ecuador. (A tan solo una hora y media de Quito).</p>
+                            <a href="https://maps.app.goo.gl/LSvXhRjRLohebwLn8" target="_blank" rel="noopener noreferrer" class="map-link-btn">
+                                <span>🗺️ Abrir ubicación en Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
 
-                        <!-- Facilidad de Acceso -->
-                        <div class="logistics-item">
-                            <div class="logistics-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
-                            </div>
-                            <div>
-                                <h4>🚗 Facilidad de Acceso</h4>
-                                <p>Vías de primer orden con parqueadero seguro dentro del proyecto comunitario.</p>
-                            </div>
-                        </div>
-
-                        <!-- ¿Qué incluye? -->
-                        <div class="logistics-item">
-                            <div class="logistics-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-                            </div>
-                            <div>
-                                <h4>🎒 ¿Qué incluye?</h4>
-                                <p>Guianza nativa dirigida por las Mamas, ingreso a talleres de bordado, recorrido medicinal, degustación de alimentos tradicionales (papas, habas y choclos recién cosechados) y souvenir artesanal.</p>
-                            </div>
-                        </div>
+                    <!-- Mapa de Google Maps Integrado -->
+                    <div class="map-embed-container">
+                        <iframe src="https://maps.google.com/maps?q=Pijal,%20Otavalo,%20Ecuador&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de Ubicación Sacha Warmikuna Pijal Otavalo"></iframe>
                     </div>
                 </div>
 
@@ -328,60 +264,65 @@
         </section>
 
         <!-- ================================================================
-             SECCIÓN 5: PRUEBAS SOCIALES (SOCIAL PROOF)
+             SECCIÓN 3: PRUEBAS SOCIALES (RESEÑAS REALES DE GOOGLE MAPS)
              ================================================================ -->
         <section class="social-proof-section" id="testimonios">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Pruebas Sociales</span>
-                    <h2 class="section-title">Generando Confianza Real</h2>
+                    <h2 class="section-title">Reseñas Reales de Nuestros Visitantes</h2>
                 </div>
 
                 <div class="testimonials-grid">
-                    <!-- Testimonio 1 -->
+                    <!-- Testimonio 1 (ExploreLocal Guide) -->
                     <div class="testimonial-card">
                         <div>
                             <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                            <span class="review-time-badge">Hace 2 meses</span>
                             <p class="testimonial-quote">
-                                "Lo que más me marcó fue la calidez con la que nos recibieron las Mamas. Compartir con ellas el choclo con habas y papas recién cosechadas en el campo nos hizo sentir como parte de su familia. El taller de bordados es una obra de arte viviente. ¡Regresé a Quito renovada!"
+                                "Gran experiencia que muestra a la perfección las tradiciones indígenas de la comunidad, sin resultar artificial o fingido. Realmente se siente el amor puesto en el proyecto. La comida como la de mi abuela, increíble degustar de productos orgánicos que saben a tradicional en cada bocado."
                             </p>
                         </div>
                         <div class="testimonial-user">
-                            <img src="assets/images/testimonial_1.jpg" alt="Daniela V., Diseñadora de Interiores" class="user-avatar">
+                            <img src="assets/images/testimonial_1.jpg" alt="Foto perfil ExploreLocal Guide" class="user-avatar">
                             <div>
-                                <h4 class="user-name">Daniela V.</h4>
-                                <span class="user-origin">Diseñadora de Interiores (Quito, Ecuador)</span>
+                                <h4 class="user-name">
+                                    <a href="https://www.google.com/maps/contrib/112552859518692724120/reviews?hl=es-419" target="_blank" rel="noopener noreferrer" class="author-map-link">Ecuador ExploreLocal Guide</a>
+                                </h4>
+                                <span class="user-origin">Local Guide · 81 opiniones · 46 fotos</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Testimonio 2 -->
+                    <!-- Testimonio 2 (Fredy Ordóñez) -->
                     <div class="testimonial-card">
                         <div>
                             <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                            <span class="review-time-badge">Hace 3 años</span>
                             <p class="testimonial-quote">
-                                "Es mucho más que un tour turístico, es un viaje con alma. Ver cómo Sacha Warmikuna utiliza el turismo y la educación para empoderar a las mujeres de la comunidad de Pijal te hace sentir que tu visita realmente tiene un impacto positivo. Totalmente recomendado."
+                                "Proyecto de restaurante comunitario con productos orgánicos de la zona. Chef y cocineras de la comunidad con gran experiencia en platos saludables y deliciosos. Cuentan con huertas orgánicas que pueden formar parte de su visita."
                             </p>
                         </div>
                         <div class="testimonial-user">
-                            <img src="assets/images/testimonial_2.jpg" alt="Martín S., Antropólogo y Viajero" class="user-avatar">
+                            <img src="assets/images/testimonial_2.jpg" alt="Foto perfil Fredy Ordóñez" class="user-avatar">
                             <div>
-                                <h4 class="user-name">Martín S.</h4>
-                                <span class="user-origin">Antropólogo y Viajero (Cuenca, Ecuador)</span>
+                                <h4 class="user-name">
+                                    <a href="https://www.google.com/maps/contrib/101834949775393242707/reviews?hl=es-419" target="_blank" rel="noopener noreferrer" class="author-map-link">Fredy Ordóñez</a>
+                                </h4>
+                                <span class="user-origin">Local Guide · 36 opiniones · 140 fotos</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- ============================================================
-                     SECCIÓN 6: CIERRE Y LLAMADO A LA ACCIÓN FINAL
-                     ============================================================ -->
+                <!-- CIERRE Y LLAMADO A LA ACCIÓN FINAL -->
                 <div class="bottom-cta-banner">
                     <h2>"Apoya el turismo sostenible y vive una aventura inolvidable. El futuro de nuestra cultura lo construimos juntos."</h2>
                     <p>Reserva tu lugar y sé parte de la preservación de nuestras tradiciones andinas.</p>
 
+                    <!-- Botón CTA Final (Texto: QUIERO VIVIR LA EXPERIENCIA SACHA) -->
                     <a href="#hero" class="btn-cta btn-cta-target">
-                        <span>¡RESERVAR MI ESPACIO CON LAS MAMAS!</span>
+                        <span>QUIERO VIVIR LA EXPERIENCIA SACHA</span>
                     </a>
 
                     <div class="direct-chat-note">
@@ -398,10 +339,13 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER CON LINK DE POLÍTICA DE PRIVACIDAD -->
     <footer class="site-footer">
         <div class="container">
             <p>© 2026 <strong>Sacha Warmikuna</strong> - Proyecto de Turismo Comunitario en Pijal, Otavalo.</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">
+                <a href="politica-de-privacidad.html" target="_blank" style="color: rgba(255,255,255,0.8); text-decoration: underline;">Política de Privacidad y Protección de Datos Personales (LOPDP)</a>
+            </p>
         </div>
     </footer>
 
@@ -436,8 +380,8 @@
             <div class="ab-control-group">
                 <label for="abSelectForm">Longitud Formulario:</label>
                 <select id="abSelectForm" class="ab-select">
-                    <option value="full">Estándar (3 campos)</option>
-                    <option value="extended">Extendido (4 campos + Fecha)</option>
+                    <option value="full">Estándar (4 campos)</option>
+                    <option value="extended">Extendido (+ Fecha)</option>
                 </select>
             </div>
         </div>
@@ -451,9 +395,7 @@
         </div>
     </div>
 
-    <!-- ====================================================================
-         SECCIÓN 7: PÁGINA DE AGRADECIMIENTO (THANK YOU PAGE COPY)
-         ==================================================================== -->
+    <!-- PÁGINA / MODAL DE AGRADECIMIENTO -->
     <div class="thank-you-modal" id="thankYouModal">
         <div class="thank-you-card">
             <div class="check-icon-circle">

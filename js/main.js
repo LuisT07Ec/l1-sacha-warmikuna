@@ -111,6 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputName = document.getElementById('fullName');
     const inputPhone = document.getElementById('phone');
     const inputEmail = document.getElementById('email');
+    const inputCity = document.getElementById('city');
+    const privacyConsent = document.getElementById('privacyConsent');
     const inputTravelDate = document.getElementById('travelDate');
     const countryCodeSelect = document.getElementById('countryCode');
 
@@ -136,11 +138,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    [inputName, inputPhone, inputEmail].forEach(input => {
+    [inputName, inputPhone, inputEmail, inputCity].forEach(input => {
         if (input) {
             input.addEventListener('input', () => clearError(input));
         }
     });
+
+    if (privacyConsent) {
+        privacyConsent.addEventListener('change', () => clearError(privacyConsent));
+    }
 
     function validateEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -173,6 +179,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 isValid = false;
             }
 
+            // Validar Ciudad
+            const cityVal = inputCity ? inputCity.value.trim() : '';
+            if (inputCity && (!cityVal || cityVal.length < 2)) {
+                showError(inputCity, 'Por favor ingresa tu ciudad de origen o residencia.');
+                isValid = false;
+            }
+
+            // Validar Checkbox de Política de Privacidad (Obligatorio LOPDP)
+            if (privacyConsent && !privacyConsent.checked) {
+                showError(privacyConsent, 'Debes autorizar el tratamiento de datos para continuar.');
+                isValid = false;
+            }
+
             if (!isValid) return;
 
             const countryCode = countryCodeSelect ? countryCodeSelect.value : '+593';
@@ -181,6 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: nameVal,
                 phone: fullPhone,
                 email: emailVal,
+                city: cityVal,
+                privacyAccepted: true,
                 travelDate: inputTravelDate && abState.formFields === 'extended' ? inputTravelDate.value : 'No especificada',
                 abVariant: `Headline: ${abState.headline} | CTA Color: ${abState.ctaColor} | Form: ${abState.formFields}`,
                 timestamp: new Date().toISOString()
@@ -217,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Enlace de WhatsApp directo para confirmación inmediata (Thank You Page Action)
             const directWaBtn = document.getElementById('directWaBtn');
             if (directWaBtn) {
-                const waMessage = encodeURIComponent(`¡Hola Rocío! Acabo de registrarme en la web. Mi nombre es ${nameVal}. Quisiera confirmar mi visita a la Experiencia Sacha Warmikuna.`);
+                const waMessage = encodeURIComponent(`¡Hola Rocío! Acabo de registrarme en la web desde ${cityVal || 'mi ciudad'}. Mi nombre es ${nameVal}. Quisiera confirmar mi visita a la Experiencia Sacha Warmikuna.`);
                 directWaBtn.href = `https://wa.me/593984745329?text=${waMessage}`;
             }
 
