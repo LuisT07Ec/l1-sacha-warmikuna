@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "primary-fixed-dim": "#ffb596",
+          "on-tertiary": "#ffffff",
+          "on-secondary-fixed-variant": "#2e4d3c",
+          "surface-variant": "#dfe4df",
+          "on-secondary-container": "#4b6b59",
+          "on-primary-fixed-variant": "#7c2e00",
+          "error": "#ba1a1a",
+          "surface-bright": "#f6fbf5",
+          "surface": "#f6fbf5",
+          "inverse-primary": "#ffb596",
+          "surface-tint": "#9e4211",
+          "primary-container": "#bb5726",
+          "on-tertiary-fixed-variant": "#005322",
+          "primary": "#9b400e",
+          "surface-container-low": "#f0f5f0",
+          "on-error": "#ffffff",
+          "background": "#f6fbf5",
+          "inverse-surface": "#2c322e",
+          "on-surface-variant": "#56423a",
+          "surface-container-highest": "#dfe4df",
+          "on-primary-container": "#fffbff",
+          "badge-amber-text": "#B34A1B",
+          "secondary-fixed": "#c7ebd4",
+          "outline-variant": "#ddc1b6",
+          "secondary-container": "#c7ebd4",
+          "surface-cream-alt": "#F4EFE6",
+          "surface-dim": "#d7dbd6",
+          "on-secondary-fixed": "#012113",
+          "surface-cream": "#FAF7F2",
+          "tertiary": "#006b2e",
+          "inverse-on-surface": "#edf2ed",
+          "secondary": "#456553",
+          "on-primary": "#ffffff",
+          "on-tertiary-container": "#f7fff3",
+          "surface-container-high": "#e5e9e4",
+          "on-surface": "#181d1a",
+          "surface-container-lowest": "#ffffff",
+          "surface-container": "#ebefea",
+          "surface-card": "#FFFFFF",
+          "on-background": "#181d1a",
+          "on-secondary": "#ffffff",
+          "outline": "#897269",
+          "text-muted": "#686D67",
+          "on-tertiary-fixed": "#002109",
+          "error-container": "#ffdad6",
+          "tertiary-fixed": "#66ff8e",
+          "on-error-container": "#93000a",
+          "primary-fixed": "#ffdbcd",
+          "on-primary-fixed": "#360f00",
+          "badge-amber": "#FDEED9",
+          "secondary-fixed-dim": "#accfb8",
+          "tertiary-container": "#00873c",
+          "tertiary-fixed-dim": "#3de273",
+          "earth-border": "#E5DDD0"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-2xs": "0.25rem",
+          "margin-desktop": "2.5rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem",
+          "margin": "1rem",
+          "gutter-desktop": "1.5rem",
+          "space-sm": "0.75rem",
+          "gutter": "1rem",
+          "space-xs": "0.5rem",
+          "space-2xl": "3rem",
+          "space-xl": "2rem"
+        },
+        "fontFamily": {
+          "headline-md": [
+            "Merriweather"
+          ],
+          "body-md": [
+            "Plus Jakarta Sans"
+          ],
+          "label-md": [
+            "Plus Jakarta Sans"
+          ],
+          "title-md": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-xl": [
+            "Merriweather"
+          ],
+          "title-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "label-caps": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-xl-mobile": [
+            "Merriweather"
+          ],
+          "caption": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-lg": [
+            "Merriweather"
+          ],
+          "body-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-lg-mobile": [
+            "Merriweather"
+          ]
+        },
+        "fontSize": {
+          "headline-md": [
+            "22px",
+            {
+              "lineHeight": "30px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-md": [
+            "15px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "label-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "600"
+            }
+          ],
+          "title-md": [
+            "18px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "40px",
+            {
+              "lineHeight": "52px",
+              "fontWeight": "700"
+            }
+          ],
+          "title-lg": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "700"
+            }
+          ],
+          "label-caps": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.08em",
+              "fontWeight": "800"
+            }
+          ],
+          "headline-xl-mobile": [
+            "30px",
+            {
+              "lineHeight": "40px",
+              "fontWeight": "700"
+            }
+          ],
+          "caption": [
+            "12px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "500"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "32px",
+            {
+              "lineHeight": "42px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "13px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg-mobile": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "700"
+            }
+          ]
+        }
+      },
+    },
+  };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#1C3B2B] shadow-md transition-all"><div class="h-20 max-w-[1240px] mx-auto px-8 md:px-12 flex items-center justify-between gap-space-lg"><a class="flex items-center flex-shrink-0 group py-1" href="#"><img alt="Sacha Warmikuna" class="h-12 w-auto object-contain transition-transform group-hover:scale-105 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuPrpaeF-QsHH6m8jH6EUUij3g6OUzAqU4iovJ9KDjxRaLMpoH8uGUAXyvNmJ_6XUkdnqwM8nGPGBaVp9ikgnMQSlfJ-TZtefkMIHHea6YWoHt5TL7vTENsTU2gFXg7H0nAA2S95ER6lGl7zpgGgSjTc3t2XZSeXSMuf2SO6wbMKJjzL0xpaHd79KGJP2T6OcqaQxSKe25zTLxntduRdq3UuvvCWGiVlHa_KdwuDDaIZPSWx8RAo19"/></a><nav class="hidden lg:flex items-center gap-8"><a class="font-label-md text-label-md text-[#F9F6F0]/90 hover:text-white transition-colors py-2" data-path="experiencia" href="#">Experiencia</a><a class="font-label-md text-label-md text-[#F9F6F0]/90 hover:text-white transition-colors py-2" data-path="que-incluye" href="#">¿Qué Incluye?</a><a class="font-label-md text-label-md text-[#F9F6F0]/90 hover:text-white transition-colors py-2" data-path="tarifas" href="#tarifas">Tarifas</a><a class="font-label-md text-label-md text-[#F9F6F0]/90 hover:text-white transition-colors py-2" data-path="testimonios" href="#">Testimonios</a><a class="font-label-md text-label-md text-[#F9F6F0]/90 hover:text-white transition-colors py-2" data-path="ubicacion" href="#">Ubicación</a></nav><div class="flex items-center gap-3"><a class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-[#F9F6F0] font-label-md text-label-md transition-colors border border-white/15" href="https://wa.me/593984745329" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px] text-[#25D366]">chat</span><span>WhatsApp Directo</span></a><a class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#D46A37] hover:bg-[#b85627] text-white font-label-md text-label-md transition-colors shadow-md hover:shadow-lg" data-path="reservas" href="#reservar">Reservar Experiencia</a></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- 1. Top Notification Bar -->
+<div class="w-full bg-secondary-fixed text-on-secondary-fixed py-space-xs px-margin-desktop shadow-sm">
+<div class="max-w-[1240px] mx-auto flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-tertiary" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-md text-label-md tracking-wide">
+          Cupos limitados por fin de semana · Máximo 15 personas por grupo para garantizar una convivencia íntima y respetuosa
+        </span>
+</div>
+<div class="hidden xl:flex items-center gap-space-sm font-caption text-caption text-on-secondary-container">
+<span class="flex items-center gap-space-2xs">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+          Fechas disponibles este mes
+        </span>
+<span>•</span>
+<span>Otavalo, Ecuador</span>
+</div>
+</div>
+</div>
+<!-- 2. Hero Section (2-Column Desktop Grid) -->
+<section class="w-full bg-surface-cream pt-space-2xl pb-space-2xl px-margin-desktop overflow-hidden relative">
+<div class="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center relative z-10">
+<!-- Left Column: Copy & Actions -->
+<div class="lg:col-span-7 flex flex-col items-start">
+<div class="inline-flex items-center gap-space-xs bg-badge-amber text-badge-amber-text px-space-md py-space-2xs rounded-full font-label-caps text-label-caps uppercase shadow-sm mb-space-md">
+<span class="material-symbols-outlined text-[16px]">nature_people</span>
+<span>TURISMO VIVENCIAL EN OTAVALO · COMUNIDAD DE PIJAL</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-[#1C3B2B] tracking-tight mb-space-md leading-tight">
+          Vive la auténtica cultura Cayambi entre flores, telares y gastronomía andina
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-space-xl max-w-[620px]">
+          Conéctate con la sabiduría ancestral de las mujeres de Sacha Warmikuna en una experiencia comunitaria de 2 horas. A solo 90 minutos de Quito por vía totalmente asfaltada.
+        </p>
+<!-- Call to Action Buttons -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full sm:w-auto mb-space-xl">
+<a class="inline-flex items-center justify-center gap-space-xs px-space-xl py-space-md rounded-full bg-[#D46A37] text-white font-label-md text-label-md shadow-md hover:bg-[#b85627] transition-all transform hover:-translate-y-0.5" href="#reservar">
+<span>RESERVAR MI EXPERIENCIA · DESDE $28</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-space-xs px-space-xl py-space-md rounded-full bg-secondary text-on-secondary font-label-md text-label-md shadow-sm hover:bg-on-secondary-container transition-all" href="https://wa.me/593984745329" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>CONSULTAR DISPONIBILIDAD INMEDIATA</span>
+</a>
+</div>
+<!-- Trust Badges Row -->
+<div class="grid grid-cols-3 gap-space-md w-full pt-space-md pb-space-lg">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Grupos Reducidos</span>
+<span class="font-caption text-caption text-text-muted">Máx. 15 viajeros</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">directions_car</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">A 90 min de Quito</span>
+<span class="font-caption text-caption text-text-muted">Vía 100% asfaltada</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">volunteer_activism</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">100% Impacto</span>
+<span class="font-caption text-caption text-text-muted">Comunitario directo</span>
+</div>
+</div>
+</div>
+<!-- Key Stats Highlight Bar -->
+<div class="w-full bg-surface-card rounded-xl p-space-md shadow-sm flex items-center justify-around">
+<div class="flex flex-col items-center">
+<span class="font-title-lg text-title-lg text-primary">2 Horas</span>
+<span class="font-caption text-caption text-on-surface-variant">Inmersión Guiada</span>
+</div>
+<div class="w-px h-8 bg-surface-container-high"></div>
+<div class="flex flex-col items-center">
+<span class="font-title-lg text-title-lg text-primary flex items-center gap-space-2xs">
+              4.9 <span class="material-symbols-outlined text-badge-amber-text text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</span>
+<span class="font-caption text-caption text-on-surface-variant">+120 Visitantes</span>
+</div>
+<div class="w-px h-8 bg-surface-container-high"></div>
+<div class="flex flex-col items-center">
+<span class="font-title-lg text-title-lg text-primary">15 Familias</span>
+<span class="font-caption text-caption text-on-surface-variant">Beneficiadas directamente</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Rich Visual Media Card -->
+<div class="lg:col-span-5 flex flex-col justify-center items-center">
+<div class="relative w-full rounded-2xl overflow-hidden shadow-xl bg-surface-card group">
+<div class="relative w-full h-[480px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Indigenous Cayambi women in vibrant traditional embroidered clothing weaving on a backstrap loom outdoors in Pijal, surrounded by lush green Andean mountains, majestic clouds, and colorful Andean floral gardens in natural warm sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDloJ9T6fGE6wMOCl7BbiCQAGI1McktsKnDgaVCP897OqW1mITQ5dUCAuHCEIXQzyi0ycwFLv83_gx16Mb7edUdHm6mPXKlgyUdBS7VFhhgPu_h8GMyOwfs9_t-Y6ls8LCD85rFvRfd481W0ym--wEZN3yQAxHK-y3b2el_EwUxIdD3_ZXYHaCbo5Ug_2mgctpJtnqifL8P6CJKrzw1VmZXINbaLSG4BJEOhR0xDUY"/>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/30 to-transparent"></div>
+<!-- Video Play Button Interaction -->
+<div class="absolute inset-0 flex items-center justify-center">
+<button aria-label="Reproducir video de la experiencia" class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl transform transition-transform group-hover:scale-110 active:scale-95">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<!-- Overlaid Bottom Card Details -->
+<div class="absolute bottom-0 left-0 right-0 p-space-lg flex items-center justify-between text-on-tertiary">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-badge-amber uppercase tracking-wider">Video vivencial de 1 minuto</span>
+<span class="font-title-md text-title-md text-surface-lowest">El Corazón de Sacha Warmikuna</span>
+<span class="font-caption text-caption text-surface-variant">Comunidad de Pijal · Parroquia González Suárez</span>
+</div>
+<div class="flex items-center gap-space-2xs bg-surface-card/20 backdrop-blur-md px-space-sm py-space-xs rounded-full">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span class="font-caption text-caption text-surface-lowest">4K</span>
+</div>
+</div>
+<!-- Subtle Logo Watermark Overlay -->
+<div class="absolute top-4 right-4 bg-surface-card/90 backdrop-blur-md p-space-xs rounded-xl shadow-sm">
+<img alt="Sacha Warmikuna" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBByh9dSwOTYQDYZF2XhMbInJYXqR9eO7KA5OfpMu6nSRMli_T6qfbqhuvfh7IBeaXOdUzJQgRtAJjpvbj04EAoCciFXq36CWpBahdXhoe9Lg4Dhrqa5zWIPAIewRWEkwmeBW2cHVeZmB6QT5bI6TDcYflIVoYfteTQ14BORz49JcKTPu1z9bEGqKfxhURrPR3Zlq9_q18mTZhj3txBmws54Yhsdbm89R_XdefF8vlEuaWqIOBCMwoI"/>
+</div>
+</div>
+<div class="p-space-md bg-surface-card flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">verified</span>
+<span class="font-body-sm text-body-sm text-on-surface">Proyecto de Turismo Ancestral y Comunitario 100% Auténtico</span>
+</div>
+<span class="font-caption text-caption text-text-muted">Imbabura Geoparque UNESCO</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Experience Pillars Breakdown: '¿Qué incluye tu visita de 2 horas?' -->
+<section class="w-full py-space-2xl px-margin-desktop bg-surface">
+<div class="max-w-[1240px] mx-auto flex flex-col items-center">
+<div class="text-center max-w-[760px] mb-space-2xl">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-space-xs">
+          ITINERARIO PASO A PASO
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-[#1C3B2B] mb-space-sm">
+          ¿Qué incluye tu visita de 2 horas?
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Una inmersión vivencial diseñada para conectar con las raíces, el tacto artesanal y la generosidad de la tierra andina.
+        </p>
+</div>
+<!-- 3-Column Grid Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-xl w-full mb-space-xl">
+<!-- Card 1 -->
+<div class="flex flex-col bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="relative h-56 w-full">
+<img class="w-full h-full object-cover" data-alt="Vibrant Ecuadorian rose greenhouses and aromatic organic herb plantations in Pijal Otavalo with Cayambi community members explaining agriculture under a clear mountain sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnr4mGmS23MWQmZXaxlE3tEAiJ1sFvfR-FRn-LK_bZQ2q2317YMvngVVEBSlrr3xD2FjQ5PzZ-aBcUb_toWErzmnXC-9lpL2EzxeiaM62KSrjj9VlvnYmfQMvrlabk1eGUkNx9ATa-CWIOollmq6Z_8cKqrcRRCrGwZX80M2XIWt-xKVmb-gr0EFq54ekVPi8nXT7rx5OqhaaxxzYSahXNUiGjfHNmYbnYckZRzgo"/>
+<div class="absolute top-4 left-4 bg-surface-card/90 backdrop-blur-md px-space-sm py-space-2xs rounded-full font-label-caps text-label-caps text-secondary">
+              PASO 1 · NATURALEZA
+            </div>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-space-sm py-space-2xs rounded-full font-caption text-caption font-semibold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+              40 minutos
+            </div>
+</div>
+<div class="p-space-lg flex flex-col flex-grow">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">
+              Recorrido por la Plantación de Flores
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md flex-grow">
+              Camina entre los invernaderos de rosas andinas y especies aromáticas de exportación. Conoce de primera mano la técnica de cultivo sustentable que impulsa el sustento económico de la comunidad de Pijal.
+            </p>
+<div class="bg-surface-cream px-space-md py-space-xs rounded-xl flex items-center gap-space-xs font-body-sm text-body-sm text-on-secondary-container mt-auto">
+<span>🌱 Degustación de infusión herbal de bienvenida</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="relative h-56 w-full">
+<img class="w-full h-full object-cover" data-alt="Hands of indigenous Cayambi women skillfully guiding colorful wool threads through an ancestral Andean backstrap loom, natural dyes and handwoven textiles in warm earth tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBauMKaoJSYftWJDg2q1-VBdyC5M3by1Y7AuAfFAJyhkbRWXwg2YKxdBD9hdgT4l76TLlyyOGy-EcHvfrZEMNbAhFZZsiNYQdVQXC6a2ZvNjRqZMukNGSCW738HKRTm8bdygBgRlHmK4O_CvCkxuI0Dv8XzdvPiH1PC-RBWW9wXUs7ETXkty9oV-zBj4fUwz3vsVzJeEuVgoCzJNy_ZfU8Vehd3KN-axE2nZldHz9s"/>
+<div class="absolute top-4 left-4 bg-surface-card/90 backdrop-blur-md px-space-sm py-space-2xs rounded-full font-label-caps text-label-caps text-primary">
+              PASO 2 · MEMORIA VIVA
+            </div>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-space-sm py-space-2xs rounded-full font-caption text-caption font-semibold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+              45 minutos
+            </div>
+</div>
+<div class="p-space-lg flex flex-col flex-grow">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">
+              Demostración de Hilado y Telares
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md flex-grow">
+              Presencia la destreza del telar de cintura prehispánico. Las mujeres compartirán el significado de cada símbolo bordado, la tintura con cochinilla y plantas medicinales, y te invitarán a probar el telar con tus propias manos.
+            </p>
+<div class="bg-surface-cream px-space-md py-space-xs rounded-xl flex items-center gap-space-xs font-body-sm text-body-sm text-primary mt-auto">
+<span>🧵 Interacción directa con artesanas maestras</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="relative h-56 w-full">
+<img class="w-full h-full object-cover" data-alt="Traditional Andean meal presented in clay earthenware bowls on a rustic wooden table with native potatoes, quinoa soup, fresh farm vegetables and organic herbal tea in Otavalo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNnbcK2pRfcVT37ZODOhasPVFOG2MMYpr_ZbBx7HtCrF2T243PfRZMWkVGiSCD7VIapGWJyxpMg_gR6JJatgS2dLgKm28WWwC_1FO1KrpwVx2yHNUvfRRIpQpV7kZ0Q3ygAASN-9WewINtTUwj4Ffo_MYEo6zF1L8uOadEowjbsBW6ECWL8in4Omby03haCK6asqkWZXZl2pDXR1IGSizUoEaA5XJ_tf0tXoqN3Ak"/>
+<div class="absolute top-4 left-4 bg-surface-card/90 backdrop-blur-md px-space-sm py-space-2xs rounded-full font-label-caps text-label-caps text-tertiary">
+              PASO 3 · NUTRICIÓN ANDINA
+            </div>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-space-sm py-space-2xs rounded-full font-caption text-caption font-semibold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+              35 minutos
+            </div>
+</div>
+<div class="p-space-lg flex flex-col flex-grow">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">
+              Almuerzo Tradicional Campesino
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md flex-grow">
+              Un banquete preparado con ingredientes cosechados en la huerta orgánica comunitaria: sopas andinas de quinua o cebada, papas nativas, verduras frescas y postre tradicional con aromas de hierbaluisa.
+            </p>
+<div class="bg-surface-cream px-space-md py-space-xs rounded-xl flex items-center gap-space-xs font-body-sm text-body-sm text-badge-amber-text mt-auto">
+<span>🍲 Opciones vegetarianas y sin gluten disponibles</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Banner under pillars -->
+<div class="w-full bg-secondary-fixed text-on-secondary-fixed rounded-2xl p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-card flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">family_restroom</span>
+</div>
+<span class="font-title-md text-title-md">
+            Experiencia 100% Familiar · Senderos planos y seguros para niños y adultos mayores. Se admiten mascotas amigables.
+          </span>
+</div>
+<a class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary hover:underline whitespace-nowrap" href="#reservar">
+<span>Verificar accesibilidad</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 4. Transparent Pricing Table: 'Tarifas Oficiales y Transparentes' -->
+<section class="w-full py-space-2xl px-margin-desktop bg-surface-cream" id="tarifas">
+<div class="max-w-[1240px] mx-auto flex flex-col items-center">
+<div class="text-center max-w-[760px] mb-space-2xl">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-space-xs">
+          ECONOMÍA SOLIDARIA
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-[#1C3B2B] mb-space-sm">
+          Tarifas Oficiales y Transparentes
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Sin intermediarios turísticos: el 100% de tu pago financia a las mujeres artesanas, agricultores y guardianes culturales de Pijal.
+        </p>
+</div>
+<!-- 4-Column Desktop Grid for Pricing Tiers -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg w-full items-stretch">
+<!-- Tier 1 (Highlighted / Más Popular) -->
+<div class="flex flex-col bg-surface-card rounded-2xl p-space-lg shadow-xl relative overflow-hidden transform lg:-translate-y-2">
+<div class="bg-[#D46A37] text-white py-space-2xs px-space-md text-center font-label-caps text-label-caps -mx-space-lg -mt-space-lg mb-space-md uppercase">
+            MÁS POPULAR · PAREJAS Y AMIGOS
+          </div>
+<div class="flex flex-col mb-space-md">
+<span class="font-title-lg text-title-lg text-on-surface">1 a 3 Personas</span>
+<div class="flex items-baseline gap-space-2xs mt-space-xs">
+<span class="font-headline-xl text-headline-xl text-primary">$40</span>
+<span class="font-body-sm text-body-sm text-text-muted">/ persona</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Ideal para parejas, viajeros independientes o fotógrafos en busca de privacidad.
+            </p>
+</div>
+<div class="flex flex-col gap-space-xs mb-space-lg flex-grow">
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Guianza exclusiva de 2 horas</span>
+</div>
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Demostración de hilado y telar interactivo</span>
+</div>
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Almuerzo andino campesino completo</span>
+</div>
+</div>
+<a class="w-full py-space-sm px-space-md rounded-full bg-primary text-on-primary font-label-md text-label-md text-center hover:bg-primary-container transition-colors shadow-sm" href="#reservar">
+            Elegir Opción 1 a 3 Personas
+          </a>
+</div>
+<!-- Tier 2 -->
+<div class="flex flex-col bg-surface-card rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col mb-space-md">
+<span class="font-title-lg text-title-lg text-on-surface">4 a 9 Personas</span>
+<div class="flex items-baseline gap-space-2xs mt-space-xs">
+<span class="font-headline-xl text-headline-xl text-on-surface">$36</span>
+<span class="font-body-sm text-body-sm text-text-muted">/ persona</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Recomendado para grupos familiares medianos y paseos de fin de semana.
+            </p>
+</div>
+<div class="flex flex-col gap-space-xs mb-space-lg flex-grow">
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Guía local comunitario bilingüe (Kichwa / Español)</span>
+</div>
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Acceso completo a invernaderos y huerta</span>
+</div>
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Menú andino completo de tres tiempos</span>
+</div>
+</div>
+<a class="w-full py-space-sm px-space-md rounded-full bg-surface-container text-on-surface font-label-md text-label-md text-center hover:bg-surface-variant transition-colors" href="#reservar">
+            Seleccionar Opción 4 a 9
+          </a>
+</div>
+<!-- Tier 3 -->
+<div class="flex flex-col bg-surface-card rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col mb-space-md">
+<span class="font-title-lg text-title-lg text-on-surface">10 a 19 Personas</span>
+<div class="flex items-baseline gap-space-2xs mt-space-xs">
+<span class="font-headline-xl text-headline-xl text-on-surface">$32</span>
+<span class="font-body-sm text-body-sm text-text-muted">/ persona</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Excelente para reuniones de amigos, asociaciones o viajes escolares.
+            </p>
+</div>
+<div class="flex flex-col gap-space-xs mb-space-lg flex-grow">
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Logística y mesas grupales en el comedor comunitario</span>
+</div>
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Taller colectivo con 2 mujeres artesanas</span>
+</div>
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Recorrido guiado integral de 2 horas</span>
+</div>
+</div>
+<a class="w-full py-space-sm px-space-md rounded-full bg-surface-container text-on-surface font-label-md text-label-md text-center hover:bg-surface-variant transition-colors" href="#reservar">
+            Seleccionar Opción 10 a 19
+          </a>
+</div>
+<!-- Tier 4 -->
+<div class="flex flex-col bg-surface-card rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col mb-space-md">
+<span class="font-title-lg text-title-lg text-on-surface">20+ Personas</span>
+<div class="flex items-baseline gap-space-2xs mt-space-xs">
+<span class="font-headline-xl text-headline-xl text-on-surface">$28</span>
+<span class="font-body-sm text-body-sm text-text-muted">/ persona</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Tarifa Especial Delegaciones · Diseñado para agencias turísticas y giras universitarias.
+            </p>
+</div>
+<div class="flex flex-col gap-space-xs mb-space-lg flex-grow">
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Coordinación de buses y parqueadero exclusivo</span>
+</div>
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Bienvenida comunitaria con música ancestral</span>
+</div>
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>Facturación corporativa disponible</span>
+</div>
+</div>
+<a class="w-full py-space-sm px-space-md rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md text-center hover:bg-secondary-fixed-dim transition-colors" href="#reservar">
+            Consultar Tarifa Grupal
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Qualified Lead Intake & Booking Form (2-Column Section) -->
+<section class="w-full py-space-2xl px-margin-desktop bg-surface" id="reservar">
+<div class="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
+<!-- Left Column: Value Proposition & Direct Contact -->
+<div class="lg:col-span-5 flex flex-col items-start">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider mb-space-xs">
+          RESERVAS Y DISPONIBILIDAD
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-[#1C3B2B] mb-space-md">
+          Consulta fechas y asegura tu cupo
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-space-lg">
+          Respuesta inmediata en menos de 15 minutos vía WhatsApp por Rocío Inlago (Líder Comunitaria) o el equipo de la comunidad.
+        </p>
+<!-- Direct Contact Card -->
+<div class="w-full bg-surface-cream rounded-2xl p-space-lg shadow-sm flex flex-col gap-space-md mb-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-primary-fixed flex-shrink-0 shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Portrait of Rocío Inlago, Cayambi indigenous community leader in Otavalo, smiling warmly wearing traditional embroidered blouse and beaded necklace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK94MgaEH4EV4O_n2alRZZdW9QQ2AH0dZBlSDpJcVkpl7tYgGJpqLvvFMjAB3095hK7qqgZm2hvasOQt3ZVBR_xl2j9_q0pcI45AfUNzl1kiSF_34rnS0fr1UXVSD-AFeDKnlevJEtpco6yvSt3Cc9LB4D18L25Qyn6boKgVih5n3sJrYzMrYym4q0ueiUOFzGrDEThmdzSRWaOqDxNmWtevs48n4p8BdMqkrnlQ0"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">Rocío Inlago</span>
+<span class="font-caption text-caption text-text-muted">Líder Comunitaria · Sacha Warmikuna</span>
+<div class="flex items-center gap-space-2xs text-tertiary font-caption text-caption mt-space-2xs">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Disponible ahora vía WhatsApp</span>
+</div>
+</div>
+</div>
+<a class="w-full py-space-sm px-space-md rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md flex items-center justify-center gap-space-xs hover:bg-secondary-fixed-dim transition-colors" href="https://wa.me/593984745329" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>+593 9 84 74 5329 (Atención Directa)</span>
+</a>
+</div>
+<!-- FAQ Snippet -->
+<div class="flex flex-col gap-space-sm w-full">
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<span>¿Puedo pagar al llegar a la comunidad? Sí, aceptamos efectivo, transferencias locales y tarjetas de débito/crédito.</span>
+</div>
+<div class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">lock</span>
+<span>Cancelación flexible hasta 24 horas antes sin penalización económica.</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Booking Card -->
+<div class="lg:col-span-7 bg-surface-card rounded-2xl p-space-xl shadow-xl">
+<form class="flex flex-col gap-space-md" onsubmit="event.preventDefault(); alert('¡Gracias por tu interés! Nos comunicaremos contigo vía WhatsApp en menos de 15 minutos.');">
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-md text-label-md text-on-surface">Nombre completo</label>
+<input class="w-full h-12 px-space-md rounded-xl bg-surface-cream font-body-md text-body-md text-on-surface placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ej. Carlos Morales" required="" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-md text-label-md text-on-surface">WhatsApp de contacto</label>
+<div class="flex items-center bg-surface-cream rounded-xl px-space-md focus-within:ring-2 focus-within:ring-primary">
+<span class="font-body-sm text-body-sm text-text-muted mr-space-xs">🇪🇨 +593</span>
+<input class="w-full h-12 bg-transparent font-body-md text-body-md text-on-surface placeholder:text-text-muted focus:outline-none" placeholder="098 474 5329" required="" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-md text-label-md text-on-surface">Correo electrónico</label>
+<input class="w-full h-12 px-space-md rounded-xl bg-surface-cream font-body-md text-body-md text-on-surface placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary" placeholder="carlos@correo.com" required="" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-md text-label-md text-on-surface">Fecha tentativa</label>
+<input class="w-full h-12 px-space-md rounded-xl bg-surface-cream font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary" required="" type="date"/>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-md text-label-md text-on-surface">Tamaño del grupo</label>
+<select class="w-full h-12 px-space-md rounded-xl bg-surface-cream font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary">
+<option value="1-3">1 a 3 Personas ($40 / p)</option>
+<option value="4-9">4 a 9 Personas ($36 / p)</option>
+<option value="10-19">10 a 19 Personas ($32 / p)</option>
+<option value="20+">20+ Personas ($28 / p)</option>
+</select>
+</div>
+</div>
+<!-- LOPDP Consent Checkbox -->
+<div class="flex items-start gap-space-sm pt-space-xs">
+<input class="w-5 h-5 rounded mt-0.5 accent-primary cursor-pointer" id="lopdp" required="" type="checkbox"/>
+<label class="font-caption text-caption text-text-muted leading-tight cursor-pointer" for="lopdp">
+              Autorizo el tratamiento de mis datos personales para coordinar mi reserva conforme a la Ley Orgánica de Protección de Datos (LOPDP) de Ecuador.
+            </label>
+</div>
+<!-- Submit Button -->
+<button class="w-full py-space-md rounded-full bg-[#D46A37] text-white font-label-md text-label-md tracking-wide shadow-md hover:bg-[#b85627] transition-all flex items-center justify-center gap-space-xs mt-space-xs" type="submit">
+<span>QUIERO VIVIR PIJAL · CONSULTAR DISPONIBILIDAD</span>
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+<div class="flex items-center justify-center gap-space-2xs font-caption text-caption text-text-muted pt-space-2xs">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>Tus datos están 100% protegidos. No enviamos spam.</span>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- 6. Social Proof (Customer Reviews) & Location Map (2-Column Desktop Grid) -->
+<section class="w-full py-space-2xl px-margin-desktop bg-surface-cream">
+<div class="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
+<!-- Left Column: Verified Reviews -->
+<div class="lg:col-span-6 flex flex-col">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">TESTIMONIOS REALES</span>
+<h2 class="font-headline-lg text-headline-lg text-[#1C3B2B]">Experiencias de visitantes</h2>
+</div>
+<div class="flex items-center gap-space-2xs bg-badge-amber text-badge-amber-text px-space-sm py-space-xs rounded-full">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">5.0 en Google</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Review 1 -->
+<div class="bg-surface-card rounded-2xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-title-md text-title-md text-primary font-bold">
+                  E
+                </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">Ecuador ExploreLocal Guide</span>
+<span class="font-caption text-caption text-text-muted">Reseña Verificada · Hace 2 meses</span>
+</div>
+</div>
+<div class="flex text-badge-amber-text">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">
+              «Gran experiencia que muestra a la perfección las tradiciones indígenas de la comunidad, sin resultar artificial o fingido. Realmente se siente el amor puesto en el proyecto. La comida como la de mi abuela, increíble degustar de productos orgánicos que saben a tradicional en cada bocado.»
+            </p>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-card rounded-2xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-title-md text-title-md text-secondary font-bold">
+                  A
+                </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">Andrea Villacís &amp; Familia</span>
+<span class="font-caption text-caption text-text-muted">Viaje familiar desde Quito</span>
+</div>
+</div>
+<div class="flex text-badge-amber-text">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">
+              «La amabilidad de las mujeres y el sabor de la comida tradicional superaron cualquier expectativa. Fuimos con mis dos hijos pequeños y pudieron tejer en el telar. Un escape perfecto desde Quito de sábado.»
+            </p>
+</div>
+<!-- Review 3 -->
+<div class="bg-surface-card rounded-2xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-title-md text-title-md text-tertiary font-bold">
+                  F
+                </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">Fredy Ordóñez</span>
+<span class="font-caption text-caption text-text-muted">Gastronomía y Tradición</span>
+</div>
+</div>
+<div class="flex text-badge-amber-text">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">
+              «Proyecto de restaurante comunitario con productos orgánicos de la zona. Chef y cocineras de la comunidad con gran experiencia en platos saludables y deliciosos.»
+            </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Location & Interactive Map View -->
+<div class="lg:col-span-6 flex flex-col">
+<div class="flex flex-col mb-space-md">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">UBICACIÓN PRIVILEGIADA</span>
+<h2 class="font-headline-lg text-headline-lg text-[#1C3B2B]">Cómo Llegar a Pijal</h2>
+</div>
+<!-- Address Card -->
+<div class="bg-surface-card rounded-2xl p-space-lg shadow-sm mb-space-md flex flex-col gap-space-sm">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[24px]">pin_drop</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">Comunidad de Pijal, Otavalo</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Panamericana Norte, Km 46 · Parroquia González Suárez, Otavalo, Imbabura, Ecuador.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm bg-surface-cream p-space-xs rounded-xl">
+<span class="material-symbols-outlined text-[18px]">navigation</span>
+<span>🚗 A tan solo 1h 30m de Quito en vía 100% asfaltada. Parqueadero privado y vigilado disponible.</span>
+</div>
+</div>
+<!-- Map Container with Data-Location -->
+<div class="w-full h-72 rounded-2xl bg-cover bg-center shadow-inner relative overflow-hidden group flex items-end p-space-md" data-location="Comunidad Pijal, Gonzalez Suarez, Otavalo, Ecuador" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2kb2svom1FZyMhenknIXZq3SGRwJU-8-uGDN4TP2r9oSYPiqCXhGHXYQRvm3QREzl4VC6aSVzttEEkkFbM1Tsp03cr45AKjC-e8GG0miLZxUOMvFAfxfBZ7SjxOPCNiqyQ4hCUKhpGP21BZM283xLpwpq5v_mCIwwX6ndBVDGoC0tw3V3GkFNuwPst9SGI_57uFLZ3iMf5cqOaZLW_HuG4Lo5yNbOgk78fKINmWM')">
+<div class="absolute inset-0 bg-inverse-surface/20 group-hover:bg-inverse-surface/10 transition-colors"></div>
+<div class="relative z-10 bg-surface-card/95 backdrop-blur-md p-space-sm rounded-xl shadow-md flex items-center justify-between w-full">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Sacha Warmikuna · Pijal</span>
+<span class="font-caption text-caption text-text-muted">Cerca del Lago San Pablo e Imbabura</span>
+</div>
+</div>
+<span class="font-caption text-caption bg-secondary-fixed text-on-secondary-fixed px-space-xs py-space-2xs rounded-full">
+              GPS Activo
+            </span>
+</div>
+</div>
+<!-- Action Buttons for Navigation -->
+<div class="grid grid-cols-2 gap-space-md mt-space-md">
+<a class="flex items-center justify-center gap-space-xs py-space-sm px-space-md rounded-full bg-surface-card text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-variant transition-colors" href="https://maps.google.com/?q=Comunidad+Pijal+Otavalo" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px] text-primary">map</span>
+<span>Abrir en Google Maps</span>
+</a>
+<a class="flex items-center justify-center gap-space-xs py-space-sm px-space-md rounded-full bg-surface-card text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-variant transition-colors" href="https://wa.me/593984745329?text=Hola,%20deseo%20información%20de%20cómo%20llegar%20en%20bus%20a%20Pijal" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px] text-secondary">directions_bus</span>
+<span>¿Cómo ir en bus?</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Final Sticky Banner / CTA Section -->
+<section class="w-full bg-[#1C3B2B] text-white py-space-2xl px-margin-desktop relative overflow-hidden">
+<div class="max-w-[1240px] mx-auto flex flex-col md:flex-row items-center justify-between gap-space-xl relative z-10">
+<div class="flex flex-col max-w-[700px]">
+<span class="font-label-caps text-label-caps text-badge-amber uppercase tracking-wider mb-space-2xs">
+          TURISMO REGENERATIVO Y COMUNITARIO
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-on-primary mb-space-xs">
+          Apoya el turismo sostenible y vive una aventura inolvidable
+        </h2>
+<p class="font-body-md text-body-md text-primary-fixed">
+          El futuro de nuestra cultura lo construimos juntos, visita tras visita. Conoce la magia de Pijal junto a las mujeres tejedoras y guardianas de la tierra.
+        </p>
+</div>
+<a class="inline-flex items-center justify-center gap-space-xs px-space-2xl py-space-md rounded-full bg-[#D46A37] text-white font-label-md text-label-md shadow-xl hover:bg-[#b85627] transition-all whitespace-nowrap transform hover:scale-105 active:scale-95" href="#reservar">
+<span>RESERVAR MI EXPERIENCIA · DESDE $28</span>
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+</a>
+</div>
+<!-- Decorative background elements -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-primary-container/40 blur-3xl pointer-events-none"></div>
+</section>
+<!-- Floating WhatsApp Pill Button in Bottom Right Corner -->
+<aside class="fixed bottom-6 right-6 z-50">
+<a aria-label="Contactar por WhatsApp" class="flex items-center gap-space-xs bg-[#25D366] text-white px-space-lg py-space-sm rounded-full shadow-[0_8px_24px_rgba(28,59,43,0.28)] hover:shadow-2xl transition-all transform hover:-translate-y-1 active:scale-95 font-label-md text-label-md" href="https://wa.me/593984745329?text=Hola%20Rocío,%20quisiera%20consultar%20disponibilidad%20para%20visitar%20Sacha%20Warmikuna" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span>¿Dudas? WhatsApp</span>
+</a>
+</aside>
+</div></main><footer class="w-full bg-[#1C3B2B] text-[#F9F6F0] pt-space-2xl pb-space-xl border-t border-white/10"><div class="max-w-[1120px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-12 gap-space-xl pb-space-2xl border-b border-white/15"><div class="md:col-span-5 flex flex-col items-start gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="Sacha Warmikuna" class="h-12 w-auto object-contain rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuPrpaeF-QsHH6m8jH6EUUij3g6OUzAqU4iovJ9KDjxRaLMpoH8uGUAXyvNmJ_6XUkdnqwM8nGPGBaVp9ikgnMQSlfJ-TZtefkMIHHea6YWoHt5TL7vTENsTU2gFXg7H0nAA2S95ER6lGl7zpgGgSjTc3t2XZSeXSMuf2SO6wbMKJjzL0xpaHd79KGJP2T6OcqaQxSKe25zTLxntduRdq3UuvvCWGiVlHa_KdwuDDaIZPSWx8RAo19"/><div class="flex flex-col"><span class="font-title-md text-title-md text-white font-bold">Sacha Warmikuna</span><span class="font-caption text-caption text-[#F9F6F0]/80">Comunidad Pijal · Otavalo, Imbabura</span></div></div><p class="font-body-md text-body-md text-[#F9F6F0]/85 mt-space-xs">Turismo vivencial y ancestral en los Andes ecuatorianos. Una iniciativa comunitaria liderada por mujeres kichwa de Pijal para preservar el patrimonio cultural, gastronómico y textil.</p><div class="flex items-center gap-space-sm mt-space-xs"><a aria-label="Canal cultural" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#D46A37] transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">photo_camera</span></a><a aria-label="Video documental" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#D46A37] transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">play_circle</span></a><a aria-label="Comunidad digital" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#D46A37] transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">forum</span></a></div></div><div class="md:col-span-4 flex flex-col gap-space-sm"><h3 class="font-title-md text-title-md text-white">Contacto Directo</h3><p class="font-body-sm text-body-sm text-[#F9F6F0]/80">Coordinación comunitaria y reservas:</p><div class="flex flex-col gap-space-xs font-body-md text-body-md"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[#D46A37] text-[20px]">person</span><span class="font-label-md text-label-md text-white">Rocío Inlago · Anfitriona Kichwa</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[#D46A37] text-[20px]">call</span><a class="text-[#F9F6F0] hover:text-[#D46A37] transition-colors" href="tel:+593984745329">+593 9 84 74 5329</a></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[#D46A37] text-[20px]">location_on</span><span class="text-[#F9F6F0]/90">Comunidad Pijal, Parroquia González Suárez, Otavalo</span></div></div></div><div class="md:col-span-3 flex flex-col gap-space-sm"><h3 class="font-title-md text-title-md text-white">Experiencias</h3><div class="flex flex-col gap-space-xs font-label-md text-label-md"><a class="text-[#F9F6F0]/80 hover:text-white transition-colors" data-path="experiencia" href="#">Tejido en Telar de Cintura</a><a class="text-[#F9F6F0]/80 hover:text-white transition-colors" data-path="que-incluye" href="#">Gastronomía Ancestral Andina</a><a class="text-[#F9F6F0]/80 hover:text-white transition-colors" data-path="tarifas" href="#tarifas">Pasadías &amp; Estancias Comunitarias</a><a class="text-[#F9F6F0]/80 hover:text-white transition-colors" data-path="ubicacion" href="#">Senderos a la Laguna de San Pablo</a></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-sm font-caption text-caption text-[#F9F6F0]/70"><p>© 2025 Sacha Warmikuna Turismo Comunitario. Todos los derechos reservados.</p><div class="flex items-center gap-space-md"><a class="hover:text-white transition-colors underline" data-path="privacidad-lopdp" href="#">Cumplimiento LOPDP Ecuador</a><a class="hover:text-white transition-colors" data-path="terminos-turisticos" href="#">Términos y Condiciones</a></div></div></div></footer></body></html>

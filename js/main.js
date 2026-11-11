@@ -1,295 +1,285 @@
 /* ==========================================================================
-   SACHA WARMIKUNA - MAIN CONVERSION & A/B TESTING ENGINE
-   Integración estricta con sacha-warmikuna-copy-deck.md y sacha-warmikuna-visual-guide.md
+   SACHA WARMIKUNA - MOTOR DE CONVERSIÓN & LÓGICA DE NEGOCIO (VERSIÓN 02)
+   Diseñado para el sistema Andean Heritage, validación LOPDP y rastreo analítico
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+
     // ----------------------------------------------------------------------
-    // 1. ESTADO DE PRUEBAS A/B (PROTOCOL TESTING)
+    // 1. SELECTOR DINÁMICO DE TARIFAS Y FECHA MÍNIMA
     // ----------------------------------------------------------------------
-    const abState = {
-        headline: localStorage.getItem('sw_ab_headline') || 'variant_a',
-        ctaColor: localStorage.getItem('sw_ab_cta') || 'red',
-        formFields: localStorage.getItem('sw_ab_form') || 'full'
+    const leadGroupSize = document.getElementById('leadGroupSize');
+    const leadDate = document.getElementById('leadDate');
+
+    // Establecer fecha mínima como hoy para el datepicker
+    if (leadDate) {
+        const today = new Date().toISOString().split('T')[0];
+        leadDate.setAttribute('min', today);
+    }
+
+    // Función global accesible desde las tarjetas de tarifas
+    window.selectPricingTier = function(tierValue) {
+        if (leadGroupSize) {
+            leadGroupSize.value = tierValue;
+        }
+        const bookingSection = document.getElementById('reservar');
+        if (bookingSection) {
+            bookingSection.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
-    const headlines = {
-        variant_a: 'Vive la cultura Cayambi: Desconéctate del ruido y conecta con la sabiduría ancestral de las Mamas en Sacha Warmikuna.',
-        variant_b: 'Tours en Otavalo con Sacha Warmikuna: Inmersión cultural, bordados y medicina ancestral en Pijal.'
+    // ----------------------------------------------------------------------
+    // 2. CONTROL DEL MENÚ MÓVIL (DRAWER)
+    // ----------------------------------------------------------------------
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (mobileMenuBtn && mobileDrawer) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        // Cerrar menú al hacer clic en cualquier enlace
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+
+        // Cerrar al hacer clic fuera del menú
+        document.addEventListener('click', (e) => {
+            if (!mobileDrawer.contains(e.target) && e.target !== mobileMenuBtn) {
+                mobileDrawer.classList.add('hidden');
+            }
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // 3. REPRODUCTOR DE VIDEO COMUNITARIO (MODAL)
+    // ----------------------------------------------------------------------
+    const openVideoBtn = document.getElementById('openVideoBtn');
+    const videoModal = document.getElementById('videoModal');
+    const closeVideoBtn = document.getElementById('closeVideoBtn');
+    const videoPlayer = document.getElementById('communityVideoPlayer');
+
+    window.openVideoModal = function() {
+        if (videoModal) {
+            videoModal.classList.remove('hidden');
+            if (videoPlayer) {
+                videoPlayer.play().catch(() => {});
+            }
+        }
     };
 
-    const puvTitleElement = document.getElementById('puvTitle');
-    const leadForm = document.getElementById('leadForm');
-    const emailGroup = document.getElementById('emailGroup');
-    const travelDateGroup = document.getElementById('travelDateGroup');
+    function closeVideo() {
+        if (videoModal) {
+            videoModal.classList.add('hidden');
+            if (videoPlayer) {
+                videoPlayer.pause();
+                videoPlayer.currentTime = 0;
+            }
+        }
+    }
+
+    if (openVideoBtn) {
+        openVideoBtn.addEventListener('click', window.openVideoModal);
+    }
+
+    if (closeVideoBtn) {
+        closeVideoBtn.addEventListener('click', closeVideo);
+    }
+
+    if (videoModal) {
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeVideo();
+            }
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // 4. CAPTURA DE LEADS & VALIDACIÓN RIGUROSA (LOPDP)
+    // ----------------------------------------------------------------------
+    const bookingForm = document.getElementById('bookingLeadForm');
+    const inputName = document.getElementById('leadFullName');
+    const inputPhone = document.getElementById('leadPhone');
+    const inputEmail = document.getElementById('leadEmail');
+    const inputDate = document.getElementById('leadDate');
+    const inputGroup = document.getElementById('leadGroupSize');
+    const inputConsent = document.getElementById('leadConsent');
+
+    // Elementos de error
+    const errName = document.getElementById('errorName');
+    const errPhone = document.getElementById('errorPhone');
+    const errEmail = document.getElementById('errorEmail');
+    const errDate = document.getElementById('errorDate');
+    const errConsent = document.getElementById('errorConsent');
+
+    // Modal de Agradecimiento
     const thankYouModal = document.getElementById('thankYouModal');
     const modalCloseBtn = document.getElementById('modalCloseBtn');
     const userNameSpan = document.getElementById('userNameSpan');
-
-    // Panel A/B Elements
-    const abToggleBtn = document.getElementById('abToggleBtn');
-    const abPanel = document.getElementById('abPanel');
-    const abSelectHeadline = document.getElementById('abSelectHeadline');
-    const abSelectCta = document.getElementById('abSelectCta');
-    const abSelectForm = document.getElementById('abSelectForm');
-
-    // ----------------------------------------------------------------------
-    // 2. APLICAR VARIANTES A/B
-    // ----------------------------------------------------------------------
-    function applyABVariants() {
-        // Actualizar Titular PUV
-        if (puvTitleElement && headlines[abState.headline]) {
-            puvTitleElement.innerHTML = headlines[abState.headline];
-        }
-
-        // Actualizar Clase de Color de CTA en el Body
-        document.body.classList.remove('cta-variant-green', 'cta-variant-terracota');
-        if (abState.ctaColor === 'green') {
-            document.body.classList.add('cta-variant-green');
-        } else if (abState.ctaColor === 'terracota') {
-            document.body.classList.add('cta-variant-terracota');
-        }
-
-        // Actualizar Campos del Formulario (3 campos vs 4 campos)
-        if (travelDateGroup) {
-            if (abState.formFields === 'extended') {
-                travelDateGroup.style.display = 'block';
-            } else {
-                travelDateGroup.style.display = 'none';
-            }
-        }
-
-        // Sincronizar Selects del Panel A/B
-        if (abSelectHeadline) abSelectHeadline.value = abState.headline;
-        if (abSelectCta) abSelectCta.value = abState.ctaColor;
-        if (abSelectForm) abSelectForm.value = abState.formFields;
-    }
-
-    applyABVariants();
-
-    // Event Listeners Panel A/B
-    if (abToggleBtn && abPanel) {
-        abToggleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            abPanel.classList.toggle('active');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!abPanel.contains(e.target) && e.target !== abToggleBtn) {
-                abPanel.classList.remove('active');
-            }
-        });
-    }
-
-    if (abSelectHeadline) {
-        abSelectHeadline.addEventListener('change', (e) => {
-            abState.headline = e.target.value;
-            localStorage.setItem('sw_ab_headline', abState.headline);
-            applyABVariants();
-        });
-    }
-
-    if (abSelectCta) {
-        abSelectCta.addEventListener('change', (e) => {
-            abState.ctaColor = e.target.value;
-            localStorage.setItem('sw_ab_cta', abState.ctaColor);
-            applyABVariants();
-        });
-    }
-
-    if (abSelectForm) {
-        abSelectForm.addEventListener('change', (e) => {
-            abState.formFields = e.target.value;
-            localStorage.setItem('sw_ab_form', abState.formFields);
-            applyABVariants();
-        });
-    }
-
-    // ----------------------------------------------------------------------
-    // 3. VALIDACIÓN Y CAPTURA DE LEADS
-    // ----------------------------------------------------------------------
-    const inputName = document.getElementById('fullName');
-    const inputPhone = document.getElementById('phone');
-    const inputEmail = document.getElementById('email');
-    const inputCity = document.getElementById('city');
-    const privacyConsent = document.getElementById('privacyConsent');
-    const inputTravelDate = document.getElementById('travelDate');
-    const countryCodeSelect = document.getElementById('countryCode');
-
-    function showError(inputElement, message) {
-        inputElement.classList.add('error');
-        const parent = inputElement.closest('.form-group');
-        let errorDiv = parent.querySelector('.error-message');
-        if (!errorDiv) {
-            errorDiv = document.createElement('div');
-            errorDiv.className = 'error-message';
-            parent.appendChild(errorDiv);
-        }
-        errorDiv.textContent = message;
-        errorDiv.style.display = 'block';
-    }
-
-    function clearError(inputElement) {
-        inputElement.classList.remove('error');
-        const parent = inputElement.closest('.form-group');
-        const errorDiv = parent.querySelector('.error-message');
-        if (errorDiv) {
-            errorDiv.style.display = 'none';
-        }
-    }
-
-    [inputName, inputPhone, inputEmail, inputCity].forEach(input => {
-        if (input) {
-            input.addEventListener('input', () => clearError(input));
-        }
-    });
-
-    if (privacyConsent) {
-        privacyConsent.addEventListener('change', () => clearError(privacyConsent));
-    }
+    const modalWhatsAppDirect = document.getElementById('modalWhatsAppDirect');
 
     function validateEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    if (leadForm) {
-        leadForm.addEventListener('submit', (e) => {
+    function clearErrors() {
+        [errName, errPhone, errEmail, errDate, errConsent].forEach(el => {
+            if (el) el.classList.add('hidden');
+        });
+        [inputName, inputPhone, inputEmail, inputDate].forEach(input => {
+            if (input) input.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
+        });
+    }
+
+    // Limpiar errores en tiempo real
+    if (inputName) inputName.addEventListener('input', () => { if (errName) errName.classList.add('hidden'); inputName.classList.remove('border-red-500'); });
+    if (inputPhone) inputPhone.addEventListener('input', () => { if (errPhone) errPhone.classList.add('hidden'); inputPhone.classList.remove('border-red-500'); });
+    if (inputEmail) inputEmail.addEventListener('input', () => { if (errEmail) errEmail.classList.add('hidden'); inputEmail.classList.remove('border-red-500'); });
+    if (inputDate) inputDate.addEventListener('change', () => { if (errDate) errDate.classList.add('hidden'); inputDate.classList.remove('border-red-500'); });
+    if (inputConsent) inputConsent.addEventListener('change', () => { if (errConsent) errConsent.classList.add('hidden'); });
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            clearErrors();
 
             let isValid = true;
 
             // Validar Nombre
-            const nameVal = inputName.value.trim();
+            const nameVal = inputName ? inputName.value.trim() : '';
             if (!nameVal || nameVal.length < 3) {
-                showError(inputName, 'Por favor ingresa tu nombre completo.');
+                if (errName) errName.classList.remove('hidden');
+                if (inputName) inputName.classList.add('border-red-500');
                 isValid = false;
             }
 
-            // Validar WhatsApp
-            const phoneVal = inputPhone.value.trim();
-            if (!phoneVal || phoneVal.length < 7 || !/^\d+$/.test(phoneVal.replace(/\s+/g, ''))) {
-                showError(inputPhone, 'Ingresa un número de WhatsApp válido.');
+            // Validar Teléfono (WhatsApp)
+            const rawPhone = inputPhone ? inputPhone.value.trim().replace(/\s+/g, '') : '';
+            if (!rawPhone || rawPhone.length < 7 || !/^\d+$/.test(rawPhone)) {
+                if (errPhone) errPhone.classList.remove('hidden');
+                if (inputPhone) inputPhone.classList.add('border-red-500');
                 isValid = false;
             }
 
             // Validar Email
-            const emailVal = inputEmail.value.trim();
+            const emailVal = inputEmail ? inputEmail.value.trim() : '';
             if (!emailVal || !validateEmail(emailVal)) {
-                showError(inputEmail, 'Por favor ingresa un correo electrónico válido.');
+                if (errEmail) errEmail.classList.remove('hidden');
+                if (inputEmail) inputEmail.classList.add('border-red-500');
                 isValid = false;
             }
 
-            // Validar Ciudad
-            const cityVal = inputCity ? inputCity.value.trim() : '';
-            if (inputCity && (!cityVal || cityVal.length < 2)) {
-                showError(inputCity, 'Por favor ingresa tu ciudad de origen o residencia.');
+            // Validar Fecha
+            const dateVal = inputDate ? inputDate.value : '';
+            if (!dateVal) {
+                if (errDate) errDate.classList.remove('hidden');
+                if (inputDate) inputDate.classList.add('border-red-500');
                 isValid = false;
             }
 
-            // Validar Checkbox de Política de Privacidad (Obligatorio LOPDP)
-            if (privacyConsent && !privacyConsent.checked) {
-                showError(privacyConsent, 'Debes autorizar el tratamiento de datos para continuar.');
+            // Validar Consentimiento LOPDP
+            if (inputConsent && !inputConsent.checked) {
+                if (errConsent) errConsent.classList.remove('hidden');
                 isValid = false;
             }
 
             if (!isValid) return;
 
-            const countryCode = countryCodeSelect ? countryCodeSelect.value : '+593';
-            const fullPhone = `${countryCode} ${phoneVal}`;
+            const groupVal = inputGroup ? inputGroup.value : '1-3';
+            const fullPhone = `+593 ${rawPhone}`;
+
             const leadData = {
-                name: nameVal,
-                phone: fullPhone,
+                nombre: nameVal,
+                telefono: fullPhone,
                 email: emailVal,
-                city: cityVal,
-                privacyAccepted: true,
-                travelDate: inputTravelDate && abState.formFields === 'extended' ? inputTravelDate.value : 'No especificada',
-                abVariant: `Headline: ${abState.headline} | CTA Color: ${abState.ctaColor} | Form: ${abState.formFields}`,
-                timestamp: new Date().toISOString()
+                fecha: dateVal,
+                grupo: groupVal,
+                consentimientoLOPDP: true,
+                fechaRegistro: new Date().toISOString()
             };
 
-            console.log('🚀 [LEAD REGISTRADO]:', leadData);
+            console.log('🚀 [LEAD REGISTRADO EN SACHA WARMIKUNA V02]:', leadData);
 
-            // Disparo de Píxeles de Rastreo (Meta Pixel / GA4)
+            // Disparo de Eventos de Analítica y Pauta
             if (typeof fbq === 'function') {
                 fbq('track', 'Lead', {
-                    content_name: 'Reserva Sacha Warmikuna',
+                    content_name: 'Experiencia Sacha Warmikuna Pijal',
                     currency: 'USD',
-                    value: 0.00
+                    value: 40.00
                 });
-            } else {
-                console.log('📌 [META PIXEL MOCK] fbq("track", "Lead")');
             }
 
             if (typeof gtag === 'function') {
                 gtag('event', 'generate_lead', {
-                    'event_category': 'Engagement',
-                    'event_label': 'Form Lead Sacha Warmikuna'
+                    event_category: 'Reservas',
+                    event_label: `Grupo ${groupVal} - ${nameVal}`
                 });
-            } else {
-                console.log('📌 [GA4 MOCK] gtag("event", "generate_lead")');
             }
 
-            // Actualizar Modal Thank You Page
+            // Construir enlace directo a WhatsApp personalizado para Rocío Inlago
             const firstName = nameVal.split(' ')[0];
+            const groupLabels = {
+                '1-3': '1 a 3 personas ($40 / p)',
+                '4-9': '4 a 9 personas ($36 / p)',
+                '10-19': '10 a 19 personas ($32 / p)',
+                '20+': '20+ personas ($28 / p)'
+            };
+            const groupText = groupLabels[groupVal] || groupVal;
+
+            const whatsappMessage = encodeURIComponent(
+                `¡Hola Rocío! Acabo de registrar mi interés en la web para la Experiencia Sacha Warmikuna en Pijal:\n\n` +
+                `👤 Nombre: ${nameVal}\n` +
+                `📅 Fecha tentativa: ${dateVal}\n` +
+                `👥 Grupo: ${groupText}\n` +
+                `📱 Teléfono: ${fullPhone}\n` +
+                `📧 Correo: ${emailVal}\n\n` +
+                `Quisiera confirmar la disponibilidad para vivir esta experiencia comunitaria. ¡Muchas gracias!`
+            );
+
+            const directWhatsAppUrl = `https://wa.me/593984745329?text=${whatsappMessage}`;
+
+            // Configurar Modal Thank You
             if (userNameSpan) {
                 userNameSpan.textContent = firstName;
             }
-
-            // Enlace de WhatsApp directo para confirmación inmediata (Thank You Page Action)
-            const directWaBtn = document.getElementById('directWaBtn');
-            if (directWaBtn) {
-                const waMessage = encodeURIComponent(`¡Hola Rocío! Acabo de registrarme en la web desde ${cityVal || 'mi ciudad'}. Mi nombre es ${nameVal}. Quisiera confirmar mi visita a la Experiencia Sacha Warmikuna.`);
-                directWaBtn.href = `https://wa.me/593984745329?text=${waMessage}`;
+            if (modalWhatsAppDirect) {
+                modalWhatsAppDirect.href = directWhatsAppUrl;
             }
 
-            // Abrir Modal de Agradecimiento
+            // Mostrar Modal
             if (thankYouModal) {
-                thankYouModal.classList.add('active');
+                thankYouModal.classList.remove('hidden');
             }
 
-            leadForm.reset();
+            bookingForm.reset();
         });
     }
 
+    // Cerrar Modal Thank You
     if (modalCloseBtn && thankYouModal) {
         modalCloseBtn.addEventListener('click', () => {
-            thankYouModal.classList.remove('active');
+            thankYouModal.classList.add('hidden');
         });
 
         thankYouModal.addEventListener('click', (e) => {
             if (e.target === thankYouModal) {
-                thankYouModal.classList.remove('active');
+                thankYouModal.classList.add('hidden');
             }
         });
     }
 
-    // Reproductor de Video Modal
-    const videoHeroCard = document.getElementById('videoHeroCard');
-    const videoModal = document.getElementById('videoModal');
-    const videoCloseBtn = document.getElementById('videoCloseBtn');
-    const iframePlayer = document.getElementById('iframePlayer');
+    // Cerrar modales con tecla Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeVideo();
+            if (thankYouModal) thankYouModal.classList.add('hidden');
+            if (mobileDrawer) mobileDrawer.classList.add('hidden');
+        }
+    });
 
-    if (videoHeroCard && videoModal) {
-        videoHeroCard.addEventListener('click', () => {
-            if (iframePlayer) {
-                iframePlayer.src = "https://www.youtube-nocookie.com/embed/ScMzIvxBSi4?autoplay=1&rel=0";
-            }
-            videoModal.classList.add('active');
-            console.log('🎥 [PIXEL TRACKING] Video Play Event');
-        });
-    }
-
-    if (videoCloseBtn && videoModal) {
-        videoCloseBtn.addEventListener('click', () => {
-            videoModal.classList.remove('active');
-            if (iframePlayer) iframePlayer.src = "";
-        });
-
-        videoModal.addEventListener('click', (e) => {
-            if (e.target === videoModal) {
-                videoModal.classList.remove('active');
-                if (iframePlayer) iframePlayer.src = "";
-            }
-        });
-    }
 });
